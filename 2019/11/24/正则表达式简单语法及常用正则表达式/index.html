@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>正则表达式简单语法及常用正则表达式 | YOYO</title><meta name="generator" content="Hexo 4.0.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">正则表达式简单语法及常用正则表达式</h1><a id="logo" href="/.">YOYO</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">正则表达式简单语法及常用正则表达式</h1><div class="post-meta"><a href="/2019/11/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#comments" class="comment-count"></a><p><span class="date">Nov 24, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>基本符号：</p>
+<p>^  表示匹配字符串的开始位置  (例外  用在中括号中[ ] 时,可以理解为取反,表示不匹配括号中字符串)</p>
+<p>$  表示匹配字符串的结束位置</p>
+<p>*  表示匹配 零次到多次</p>
+<p>+  表示匹配 一次到多次 (至少有一次)</p>
+<p>?  表示匹配零次或一次</p>
+<p>.  表示匹配单个字符 </p>
+<p>|  表示为或者,两项中取一项</p>
+<p>(  ) 小括号表示匹配括号中全部字符</p>
+<p>[  ] 中括号表示匹配括号中一个字符 范围描述 如[0-9 a-z A-Z]</p>
+<p>{  } 大括号用于限定匹配次数  如 {n}表示匹配n个字符  {n,}表示至少匹配n个字符  {n,m}表示至少n,最多m</p>
+<p>\  转义字符 如上基本符号匹配都需要转义字符   如 *  表示匹配*号</p>
+<p>\w 表示英文字母和数字  \W  非字母和数字</p>
+<p>\d  表示数字   \D  非数字</p>
+<p>-———————————————————————————————————————————————————————————————</p>
+<p>常用的正则表达式(转)</p>
+<p>匹配中文字符的正则表达式： [\u4e00-\u9fa5]</p>
+<p>匹配双字节字符(包括汉字在内)：[^\x00-\xff]</p>
+<p>匹配空行的正则表达式：\n[\s| ]*\r</p>
+<p>匹配HTML标记的正则表达式：/&lt;(.<em>)&gt;.</em>&lt;/\1&gt;|&lt;(.*) /&gt;/ </p>
+<p>匹配首尾空格的正则表达式：(^\s<em>)|(\s</em>$)</p>
+<p>匹配IP地址的正则表达式：/(\d+).(\d+).(\d+).(\d+)/g //</p>
+<p>匹配Email地址的正则表达式：\w+([-+.]\w+)<em>@\w+([-.]\w+)*.\w+([-.]\w+)</em></p>
+<p>匹配网址URL的正则表达式：<a href="https://blog.csdn.net/" target="_blank" rel="noopener">http://(/</a>[\w-]+.)+[\w-]+(/[\w- ./?%&amp;=]*)?</p>
+<p>sql语句：^(select|drop|delete|create|update|insert).*$</p>
+<p>1、非负整数：^\d+$ </p>
+<p>2、正整数：^[0-9]<em>[1-9][0-9]</em>$ </p>
+<p>3、非正整数：^((-\d+)|(0+))$ </p>
+<p>4、负整数：^-[0-9]<em>[1-9][0-9]</em>$ </p>
+<p>5、整数：^-?\d+$ </p>
+<p>6、非负浮点数：^\d+(.\d+)?$ </p>
+<p>7、正浮点数：^((0-9)+.[0-9]<em>[1-9][0-9]</em>)|([0-9]<em>[1-9][0-9]*.[0-9]+)|([0-9]</em>[1-9][0-9]*))$ </p>
+<p>8、非正浮点数：^((-\d+.\d+)?)|(0+(.0+)?))$ </p>
+<p>9、负浮点数：^(-((正浮点数正则式)))$ </p>
+<p>10、英文字符串：^[A-Za-z]+$ </p>
+<p>11、英文大写串：^[A-Z]+$ </p>
+<p>12、英文小写串：^[a-z]+$ </p>
+<p>13、英文字符数字串：^[A-Za-z0-9]+$ </p>
+<p>14、英数字加下划线串：^\w+$ </p>
+<p>15、E-mail地址：^[\w-]+(.[\w-]+)*@[\w-]+(.[\w-]+)+$ </p>
+<p>16、URL：^[a-zA-Z]+://(\w+(-\w+)<em>)(.(\w+(-\w+)</em>))<em>(?\s</em>)?$ </p>
+<p>或：^http://[A-Za-z0-9]+.[A-Za-z0-9]+[/=?%-&amp;_~`@[]&#39;:+!]<em>([^&lt;&gt;&quot;&quot;])</em>$</p>
+<p>17、邮政编码：^[1-9]\d{5}$</p>
+<p>18、中文：^[\u0391-\uFFE5]+$</p>
+<p>19、电话号码：^((\d2,3)|(\d{3}-))?(0\d2,3|0\d{2,3}-)?[1-9]\d{6,7}(-\d{1,4})?$</p>
+<p>20、手机号码：^((\d2,3)|(\d{3}-))?13\d{9}$</p>
+<p>21、双字节字符(包括汉字在内)：^\x00-\xff</p>
+<p>22、匹配首尾空格：(^\s<em>)|(\s</em>$)（像vbscript那样的trim函数）</p>
+<p>23、匹配HTML标记：&lt;(.<em>)&gt;.</em>&lt;/\1&gt;|&lt;(.*) /&gt; </p>
+<p>24、匹配空行：\n[\s| ]*\r</p>
+<p>25、提取信息中的网络链接：(h|H)(r|R)(e|E)(f|F) *= *(‘|”)?(\w|\|/|.)+(‘|”| *|&gt;)?</p>
+<p>26、提取信息中的邮件地址：\w+([-+.]\w+)<em>@\w+([-.]\w+)*.\w+([-.]\w+)</em></p>
+<p>27、提取信息中的图片链接：(s|S)(r|R)(c|C) *= *(‘|”)?(\w|\|/|.)+(‘|”| *|&gt;)?</p>
+<p>28、提取信息中的IP地址：(\d+).(\d+).(\d+).(\d+)</p>
+<p>29、提取信息中的中国手机号码：(86)<em>0</em>13\d{9}</p>
+<p>30、提取信息中的中国固定电话号码：(\d3,4|\d{3,4}-|\s)?\d{8}</p>
+<p>31、提取信息中的中国电话号码（包括移动和固定电话）：(\d3,4|\d{3,4}-|\s)?\d{7,14}</p>
+<p>32、提取信息中的中国邮政编码：[1-9]{1}(\d+){5}</p>
+<p>33、提取信息中的浮点数（即小数）：(-?\d*).?\d+</p>
+<p>34、提取信息中的任何数字 ：(-?\d*)(.\d+)? </p>
+<p>35、IP：(\d+).(\d+).(\d+).(\d+)</p>
+<p>36、电话区号：/^0\d{2,3}$/</p>
+<p>37、腾讯QQ号：^[1-9]<em>[1-9][0-9]</em>$</p>
+<p>38、帐号(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$</p>
+<p>39、中文、英文、数字及下划线：^[\u4e00-\u9fa5_a-zA-Z0-9]+$</p>
+</div><div class="post-copyright"><blockquote><p>原文作者: YOYO</p><p>原文链接: <a href="http://yoursite.com/2019/11/24/正则表达式简单语法及常用正则表达式/">http://yoursite.com/2019/11/24/正则表达式简单语法及常用正则表达式/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/11/24/Java-super%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/" class="next">Java super关键字详解</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式简单语法及常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/Java-super%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/">Java super关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/Java%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%A6%E8%A7%A3/">Java构造函数的详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/Jsp%E5%92%8CServlet%E6%9C%89%E5%93%AA%E4%BA%9B%E5%85%B1%E5%90%8C%E7%82%B9%E5%8F%8A%E5%85%B6%E5%8C%BA%E5%88%AB/">Jsp和Servlet有哪些共同点及其区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/">页面中传递对象的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4-1/">ajax请求的五个步骤</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/10/Java%E4%BF%AE%E6%94%B9%E7%BC%96%E7%A0%81%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/">Java修改编码格式的几种方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/03/%E9%97%AD%E5%8C%85%E5%92%8C%E7%BB%A7%E6%89%BF/">闭包和继承</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/31/%E6%80%8E%E6%A0%B7%E4%BD%BF%E7%94%A8jsp%E5%86%99%E6%B3%A8%E5%86%8C%E9%A1%B5%E9%9D%A2/">怎样使用jsp写注册页面</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/30/Eclipse%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AETomcat/">Eclipse环境下如何配置Tomcat</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">YOYO.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
