@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><link rel="stylesheet" type="text/css" href="//fonts.loli.net/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.4"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.4"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><title>JSP基本语法 | YOYO</title><meta name="generator" content="Hexo 4.0.0"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">JSP基本语法</h1><a id="logo" href="/.">YOYO</a><p class="description"></p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="搜索"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">JSP基本语法</h1><div class="post-meta"><a href="/2019/12/10/JSP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/#comments" class="comment-count"></a><p><span class="date">Dec 10, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>简介</p>
+<p>JSP页面可以嵌入HTML标签、指令、动作、脚本、扩展标签等。</p>
+<p>这些内容可以分成元素和模板数据。</p>
+<p>元素是在JSP基本语法中定义的内容，JSP容器在转换阶段将元素翻译成相应的Java代码。</p>
+<p>JSP页面中其他的所有内容都是模板数据。JSP容器对模板数据不做处理。</p>
+<p>JSP定义的元素有4种类型。</p>
+<p>指令：用于设置整个页面属性</p>
+<p>脚本：JSP中嵌入的Java代码</p>
+<p>动作：利用XML语法格式的标记来控制JSP容器的行为</p>
+<p>表达式语言（EL）：$(表达式)，计算表达式括号内的表达式的值，将其转换为String类型并进行显示</p>
+<h3 id="脚本元素"><a href="#脚本元素" class="headerlink" title="脚本元素"></a>脚本元素</h3><p>脚本元素是：JSP页面中嵌入的Java代码。包括</p>
+<ul>
+<li>声明（declaration）</li>
+<li>表达式（expression）</li>
+<li>脚本小程序（scriptlet）</li>
+</ul>
+<p><strong>声明</strong></p>
+<p>声明变量</p>
+<p>声明方法</p>
+<p>声明类</p>
+<p><strong>&lt;%!声明%&gt;</strong></p>
+<p><strong>脚本小程序</strong>是jsp中嵌入一小段代码</p>
+<p><strong>&lt;%Java代码%&gt;</strong></p>
+<p><strong>表达式</strong></p>
+<p><strong>&lt;%=expression%&gt;</strong></p>
+<p>ps:”&lt;%=”3个字符之间不可以有空格，表达式之后不能有；（分号）</p>
+<h3 id="指令元素"><a href="#指令元素" class="headerlink" title="指令元素"></a>指令元素</h3><p>JSP指令用于设置整个页面属性，并告诉JSP引擎如何处理该页面，它并不产生任何输出。</p>
+<p>&lt;%@ 指令名 属性名=“属性值” %&gt;</p>
+<p>JSP2.3中有3种指令：</p>
+<p>page：定义了一组与页面相关的属性。<br>include：用来引用外部文件，可以放在JSP文件的任意位置。<br>taglib：<strong>page</strong></p>
+<p><strong>&lt;%@ page language=”java” %&gt;</strong></p>
+<p><img src="https://img-blog.csdn.net/20181010101900807?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODUwMDMyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><strong>include</strong></p>
+<p><strong>&lt;%@ include file=”url” %&gt;</strong></p>
+<h3 id="动作元素"><a href="#动作元素" class="headerlink" title="动作元素"></a>动作元素</h3><p>JSP的动作利用XML语法格式的标记来控制JSP容器的行为。</p>
+<p><strong>&lt;jsp:action_name attribute=”value”/&gt;</strong></p>
+<p><img src="https://img-blog.csdn.net/2018101010193427?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODUwMDMyNQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><strong>作用</strong></p>
+<ul>
+<li>利用JSP动作可以动态的插入地插入文件</li>
+<li>重用JavaBean组件</li>
+<li>把用户重定向到另外的页面</li>
+<li>为Java插件生成HTML代码</li>
+</ul>
+<p><strong>区别</strong></p>
+<p>与JSP指令不同的是，JSP动作元素在请求处理阶段起作用。</p>
+<p><strong>注释</strong></p>
+<ul>
+<li>HTML</li>
+</ul>
+<!--注释内容-->
+
+<ul>
+<li>JSP（隐藏注释）</li>
+</ul>
+<p>&lt;%–comments–%&gt;</p>
+<ul>
+<li>Java</li>
+</ul>
+<p>&lt;%//单行注释%&gt;</p>
+<p>&lt;%/<em>多行注释</em>/&gt;</p>
+</div><div class="post-copyright"><blockquote><p>原文作者: YOYO</p><p>原文链接: <a href="http://yoursite.com/2019/12/10/JSP基本语法/">http://yoursite.com/2019/12/10/JSP基本语法/</a></p><p>版权声明: 转载请注明出处(必须保留作者署名及链接)</p></blockquote></div><div class="tags"></div><div class="post-share"><div class="social-share"><span>分享到:</span></div></div><div class="post-nav"><a href="/2019/12/05/vue%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%9A%84%E4%B8%8A%E4%BC%A0/" class="next">vue实现图片的上传</a></div><div id="comments"></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#脚本元素"><span class="toc-text">脚本元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指令元素"><span class="toc-text">指令元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动作元素"><span class="toc-text">动作元素</span></a></li></ol></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/12/10/JSP%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JSP基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/05/vue%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E7%9A%84%E4%B8%8A%E4%BC%A0/">vue实现图片的上传</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/04/Vue%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4%E6%9C%89%E5%93%AA%E4%BA%9B/">Vue常用的指令有哪些?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/04/Vue%E6%98%AF%E4%BB%80%E4%B9%88%E5%8F%8A%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Vue/">Vue是什么及如何使用Vue?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95%E5%8F%8A%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式简单语法及常用正则表达式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/Java-super%E5%85%B3%E9%94%AE%E5%AD%97%E8%AF%A6%E8%A7%A3/">Java super关键字详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/Java%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E8%AF%A6%E8%A7%A3/">Java构造函数的详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/24/Jsp%E5%92%8CServlet%E6%9C%89%E5%93%AA%E4%BA%9B%E5%85%B1%E5%90%8C%E7%82%B9%E5%8F%8A%E5%85%B6%E5%8C%BA%E5%88%AB/">Jsp和Servlet有哪些共同点及其区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/%E9%A1%B5%E9%9D%A2%E4%B8%AD%E4%BC%A0%E9%80%92%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95/">页面中传递对象的方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/21/ajax%E8%AF%B7%E6%B1%82%E7%9A%84%E4%BA%94%E4%B8%AA%E6%AD%A5%E9%AA%A4-1/">ajax请求的五个步骤</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="http://www.example1.com/" title="site-name1" target="_blank">site-name1</a><ul></ul><a href="http://www.example2.com/" title="site-name2" target="_blank">site-name2</a><ul></ul><a href="http://www.example3.com/" title="site-name3" target="_blank">site-name3</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">网站地图</a> |  <a href="/atom.xml">订阅本站</a> |  <a href="/about/">联系博主</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次，本站总访客数:<i id="busuanzi_container_site_uv"><i id="busuanzi_value_site_uv"></i></i>人</p><p><span> Copyright &copy;<a href="/." rel="nofollow">YOYO.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/" target="_blank" rel="noopener"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script type="text/javascript" src="/js/search.json.js?v=2.0.4"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.4" async></script><link rel="stylesheet" type="text/css" href="/share/css/share.css"><script type="text/javascript" src="/share/js/social-share.js" charset="utf-8"></script><script type="text/javascript" src="/share/js/qrcode.js" charset="utf-8"></script></body></html>
